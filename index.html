@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="play-music" title="Play Music">
+                <img src="play-icon.png" alt="Play Music Icon">
+            </button>
+        </div>
+        
+        <h1>To My Love</h1>
+        
+        <p id="date-invite">Muskan my love, will you come out on a date with me on the 16th?</p>
+        <img src="cute-cat.gif" alt="Cute Cat" id="cat-gif">
+        
+        <div class="options">
+            <button class="option-button" id="yes-button">Yes</button>
+            <button class="option-button" id="no-button">No</button>
+        </div>
+        
+        <button id="open-letter">Read Love Letter</button>
+        <div id="love-letter" class="hidden">
+            <p>Dear Muskan Mirza,</p>
+            <p>From the moment we met, I knew you were special. You light up my life in ways I never thought possible. This page is just a tiny way of showing how much you mean to me. I can't wait for our date on the 16th. You make my world a better place and I LOVE YOU more than the words can say <3</p>
+            <p>FOREVER YOURS,</p>
+            <p>Rajat <33</p>
+        </div>
+        
+        <div id="timer">
+            <p>Time until our date:</p>
+            <span id="countdown"></span>
+        </div>
+        
+        <footer>
+            Developed with LOVE @ COPYRIGHTS belong to MY MUSKAN because she has already stolen my heart <3
+        </footer>
+    </div>
+    
+    <audio id="bg-music" src="https://www.example.com/path/to/perfect-ed-sheeran.mp3"></audio>
+
+    <script>
+        // Handle music play/pause
+        document.getElementById('play-music').addEventListener('click', function() {
+            var audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+
+        // Handle love letter visibility
+        document.getElementById('open-letter').addEventListener('click', function() {
+            var letter = document.getElementById('love-letter');
+            letter.classList.toggle('hidden');
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const date = new Date('2024-09-16T00:00:00'); // Change this to your date
+            const now = new Date();
+            const difference = date - now;
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
